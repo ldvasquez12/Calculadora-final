@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Building2, Calendar, PiggyBank, Wallet } from 'lucide-react';
 
 function App() {
-  const [investment, setInvestment] = useState(50000);
+  const [investment, setInvestment] = useState(500);
 
   const calculateQuarterlyReturns = (amount: number) => {
     const annualRate = 0.20;
@@ -42,18 +42,18 @@ function App() {
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-semibold mb-6">Calculadora de Inversión</h2>
+          <h2 className="text-xl font-semibold mb-6">Calcula tu Inversión</h2>
           <div className="space-y-6">
             <div>
               <label htmlFor="investment" className="block text-sm font-medium text-gray-700">
-                Monto de Inversión
+                Elige el monto a invertir
               </label>
               <div className="mt-1">
                 <input
                   type="range"
                   id="investment"
-                  min="50000"
-                  max="500000"
+                  min="500"
+                  max="1000000"
                   step="10000"
                   value={investment}
                   onChange={(e) => setInvestment(Number(e.target.value))}
@@ -66,19 +66,19 @@ function App() {
             </div>
 
             <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4">Rendimientos (20% Anual)</h3>
+              <h3 className="text-lg font-semibold mb-4">Ganarás</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white p-4 rounded-lg shadow">
                   <div className="flex items-center space-x-2 mb-2">
                     <Calendar className="h-5 w-5 text-blue-600" />
-                    <span className="font-medium">Pago Trimestral</span>
+                    <span className="font-medium">Recibirás cada 3 meses</span>
                   </div>
                   <span className="text-xl font-bold text-blue-600">{formatCurrency(returns.quarterlyPayment)}</span>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow">
                   <div className="flex items-center space-x-2 mb-2">
                     <PiggyBank className="h-5 w-5 text-green-600" />
-                    <span className="font-medium">Rendimiento Total (2 años)</span>
+                    <span className="font-medium">Tu ganancia</span>
                   </div>
                   <span className="text-xl font-bold text-green-600">{formatCurrency(returns.totalQuarterlyPayments)}</span>
                 </div>
